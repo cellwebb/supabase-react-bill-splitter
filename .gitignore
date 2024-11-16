@@ -38,3 +38,4 @@ supabase/.branches
 
 # Node
 node_modules
+dist/
