@@ -1,6 +1,7 @@
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Auth } from './components/Auth';
-import { useAuth } from './hooks/useAuth';
+import React from "react";
+import { BrowserRouter as Router } from "https://esm.sh/react-router-dom@6.21.3";
+import { Auth } from "./components/Auth.tsx";
+import { useAuth } from "./hooks/useAuth.ts";
 
 function App() {
   const { user, loading } = useAuth();

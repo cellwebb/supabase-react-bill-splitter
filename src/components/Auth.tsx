@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { supabase } from '../services/supabase';
+import React, { useState } from "react";
+import { supabase } from "../services/supabase.ts";
 
 export function Auth() {
   const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,9 +18,13 @@ export function Auth() {
       });
 
       if (error) throw error;
-      alert('Check your email for the login link!');
-    } catch (error) {
-      alert(error.message);
+      alert("Check your email for the login link!");
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("An error occurred during login");
+      }
     } finally {
       setLoading(false);
     }
@@ -57,7 +61,7 @@ export function Auth() {
               disabled={loading}
               className="group relative flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              {loading ? 'Loading...' : 'Send magic link'}
+              {loading ? "Loading..." : "Send magic link"}
             </button>
           </div>
         </form>
