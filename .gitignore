@@ -36,3 +36,6 @@ lerna-debug.log*
 .temp
 supabase/.temp
 supabase/.branches
+
+# Node
+node_modules
